@@ -12,6 +12,6 @@ https://github.com/tzutalin/awesome-visual-slam
 The list of vision-based SLAM open source projects, tools, which can be used in ROS
 
 ### Reading articles
-###### Object recognition supported by user interaction for service robots
+Object recognition supported by user interaction for service robots
 Makihara, Y. ; Takizawa, M. ; Shirai, Y. ; Miura, J. ; Shimada, N.
 Object recognition supported by user interaction for service robots 2002, Vol.3, pp.561-564
