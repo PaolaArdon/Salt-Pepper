@@ -5,6 +5,12 @@ This is the Robotics Project (VIBOT 3nd semester, Heriot-Watt University) done b
 Vision Recognition for Pepper <br />
 http://doc.aldebaran.com/2-1/naoqi/vision/alvisionrecognition.html
 
+MoveIt to grasp objects:
+https://github.com/ros-aldebaran/romeo_moveit_actions
+
+Localization - GoToHome:
+http://doc.aldebaran.com/2-1/naoqi/vision/allocalization-api.html
+
 Tutorial of using stereo data from two RGB cameras in ROS <br />
 http://wiki.ros.org/vslam_system/Tutorials/RunningVslamOnStereoData
 
