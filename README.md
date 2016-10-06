@@ -21,3 +21,6 @@ https://github.com/tzutalin/awesome-visual-slam
 ### Reading articles
 * **Object recognition supported by user interaction for service robots** <br /> Makihara, Y. ; Takizawa, M. ; Shirai, Y. ; Miura, J. ; Shimada, N. <br /> Object recognition supported by user interaction for service robots 2002, Vol.3, pp.561-564
 
+### other links
+https://www.aaai.org/Papers/AAAI/1997/AAAI97-137.pdf
+
