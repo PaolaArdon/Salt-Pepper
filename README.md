@@ -24,3 +24,8 @@ https://github.com/tzutalin/awesome-visual-slam
 ### other links
 https://www.aaai.org/Papers/AAAI/1997/AAAI97-137.pdf
 
+### Logbook
+[here]
+
+
+[here]: <https://www.youtube.com/watch?v=5PaKWS52CIM>
