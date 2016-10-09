@@ -8,6 +8,9 @@ http://doc.aldebaran.com/2-1/naoqi/vision/alvisionrecognition.html
 MoveIt to grasp objects:
 https://github.com/ros-aldebaran/romeo_moveit_actions
 
+Naoqi control to grasp:
+http://doc.aldebaran.com/2-1/naoqi/motion/control-cartesian.html
+
 Localization - GoToHome:
 http://doc.aldebaran.com/2-1/naoqi/vision/allocalization-api.html
 
