@@ -18,8 +18,10 @@ The list of vision-based SLAM open source projects, tools, which can be used in 
 https://github.com/tzutalin/awesome-visual-slam
 
 
-### Reading articles
+### Reading articlesP
 * **Object recognition supported by user interaction for service robots** <br /> Makihara, Y. ; Takizawa, M. ; Shirai, Y. ; Miura, J. ; Shimada, N. <br /> Object recognition supported by user interaction for service robots 2002, Vol.3, pp.561-564
+
+* **ORB: an efficient alternative to SIFT or SURF** <br /> Rublee, E., Rabaud, V., Konolige, K., & Bradski, G. (2011, November) In 2011 International conference on computer vision (pp. 2564-2571). IEEE 
 
 ### other links
 https://www.aaai.org/Papers/AAAI/1997/AAAI97-137.pdf
