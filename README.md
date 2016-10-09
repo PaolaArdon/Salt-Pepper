@@ -27,7 +27,4 @@ https://github.com/tzutalin/awesome-visual-slam
 https://www.aaai.org/Papers/AAAI/1997/AAAI97-137.pdf
 
 ### Logbook
-[here]
-
-
-[here]: <https://www.overleaf.com/6504894skysnw>
+[link](https://www.overleaf.com/6504894skysnw)
