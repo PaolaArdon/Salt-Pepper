@@ -1,0 +1,37 @@
+Run JoyPepper with Autonomous life ON:
+$ roscore
+$ roslaunch pepper_bringup pepper_full_py.launch nao_ip:="10.42.0.76" roscore_ip:=127.0.0.1
+$ rosrun joy joy_node
+$ rosrun joy_pepper joypepper.py
+
+This will allow to control the robot using the joystick, but Pepper behaves like a kid (if she gets distracted, she just stops listening you)
+
+Run JoyPepper with Autonomous life OFF:
+$ roscore
+$ roslaunch pepper_dcm_bringup pepper_bringup.launch robot_ip:="10.42.0.76" network_interface:=wlan0
+$ roslaunch pepper_bringup pepper_full_py.launch nao_ip:="10.42.0.76" roscore_ip:=127.0.0.1
+$ rosrun joy joy_node
+$ rosrun joy_pepper joypepper.py
+
+Joystick configurations:
+Base control:
+  left arrow keys:
+	<-, -> : turn left, right
+	^, v : move forward, backward
+Head control:
+  right buttons
+
+Sleep&WakeUp:
+  R1 & R2 buttons
+
+RUN ORB_SLAM2 - Monocular
+$ roscore
+$ rosrun ORB_SLAM2 Mono /Path/To/ORB_SLAM2/Vocabulary/ORBvoc.bin /Path/To/ORB_SLAM2/Examples/Monocular/TUM1.yaml
+
+LS_ORB_SLAM2 - RGB-D
+$ roscore
+$ rosrun ORB_SLAM2 RGBD /Path/To/ORB_SLAM2/Vocabulary/ORBvoc.bin /Path/To/ORB_SLAM2/Examples/RGB-D/pepperCameraSettings.yaml false (create a new map) / true (use a saved map)
+
+RUN OBJECT RECOGNITION:
+$ roscore
+$ rosrun pepper_recog recog.py

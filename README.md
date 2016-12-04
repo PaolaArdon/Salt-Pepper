@@ -1,5 +1,5 @@
 # Salt-Pepper Project 
-This is the Robotics Project (VIBOT 3nd semester, Heriot-Watt University) done by Paola Ardon(ardonp@hotmail.com) Kaisar Kushibar(k.kushibar@gmail.com), and Songyou Peng (psy920710@gmail.com). 
+This is the Robotics Project (VIBOT 3rd semester, Heriot-Watt University) done by Paola Ardon(ardonp@hotmail.com) Kaisar Kushibar(k.kushibar@gmail.com), and Songyou Peng (psy920710@gmail.com). 
 
 ### Useful Links
 Vision Recognition for Pepper <br />
