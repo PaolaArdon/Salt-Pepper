@@ -3,7 +3,8 @@ This is the Robotics Project (VIBOT 3rd semester, Heriot-Watt University) done b
 
 ### Requirements
 * [ROS](http://www.ros.org/)
-* [OpenCV]()
+* [Python 2.7](https://www.python.org/)
+* [OpenCV](http://opencv.org/)
 * [ros-naoqi](https://github.com/ros-naoqi/pepper_robot)
 * [ros-teleop](https://github.com/ros-teleop/teleop_tools)
 * [ORB SLAM 2](https://github.com/raulmur/ORB_SLAM2)
@@ -57,6 +58,12 @@ Run object recognition
 ```sh
 $ rosrun pepper_recog recog.py
 ```
+
+### Special thanks
+We want to thank 
+* **Raul Mur-Artal** for his awesome [ORB SLAM2](https://github.com/raulmur/ORB_SLAM2)
+* **Bence Magyar** for his advice of using [Joystick teleop](https://github.com/ros-teleop/teleop_tools)
+* **José María Sola Durán** for his object recognition [code framework](https://gitlab.com/josemariasoladuran/object-recognition-opencv-python)
 
 ### Logbook
 [link](https://www.overleaf.com/6504894skysnw)
