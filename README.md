@@ -1,33 +1,69 @@
 # Salt-Pepper Project 
 This is the Robotics Project (VIBOT 3rd semester, Heriot-Watt University) done by Paola Ardon(ardonp@hotmail.com) Kaisar Kushibar(k.kushibar@gmail.com), and Songyou Peng (psy920710@gmail.com). 
 
-### Useful Links
-Vision Recognition for Pepper <br />
-http://doc.aldebaran.com/2-1/naoqi/vision/alvisionrecognition.html
-
-MoveIt to grasp objects:
-https://github.com/ros-aldebaran/romeo_moveit_actions
-
-Naoqi control to grasp:
-http://doc.aldebaran.com/2-1/naoqi/motion/control-cartesian.html
-
-Localization - GoToHome:
-http://doc.aldebaran.com/2-1/naoqi/vision/allocalization-api.html
-
-Tutorial of using stereo data from two RGB cameras in ROS <br />
-http://wiki.ros.org/vslam_system/Tutorials/RunningVslamOnStereoData
-
-The list of vision-based SLAM open source projects, tools, which can be used in ROS <br />
-https://github.com/tzutalin/awesome-visual-slam
+### Requirements
+* [ROS](http://www.ros.org/)
+* [Python 2.7](https://www.python.org/)
+* [OpenCV](http://opencv.org/)
+* [ros-naoqi](https://github.com/ros-naoqi/pepper_robot)
+* [ros-teleop](https://github.com/ros-teleop/teleop_tools)
+* [ORB SLAM 2](https://github.com/raulmur/ORB_SLAM2)
 
 
-### Reading articles
-* **Object recognition supported by user interaction for service robots** <br /> Makihara, Y. ; Takizawa, M. ; Shirai, Y. ; Miura, J. ; Shimada, N. <br /> Object recognition supported by user interaction for service robots 2002, Vol.3, pp.561-564 [**pdf**](http://www.am.sanken.osaka-u.ac.jp/~makihara/pdf/accv2002.pdf)
+### Demo
+The demonstration of SLAM + Object recognition with Pepper robot can be found [**here**](https://www.youtube.com/watch?v=evFsnWH_bpY&t=5s).
 
-* **ORB: an efficient alternative to SIFT or SURF** <br /> Rublee, E., Rabaud, V., Konolige, K., & Bradski, G. (2011, November) In 2011 International conference on computer vision (pp. 2564-2571). IEEE [**pdf**](http://www.willowgarage.com/sites/default/files/orb_final.pdf)
 
-### other links
-https://www.aaai.org/Papers/AAAI/1997/AAAI97-137.pdf
+### How to run
+First of all, start ROS and connect the host computer with Pepper:
+```sh
+$ roscore
+$ roslaunch pepper_bringup pepper_full_py.launch nao_ip:="ROBOT_IP" roscore_ip:="HOST_IP"
+```
+
+Run JoyPepper with Autonomous life ON. This will allow to control the robot using the joystick, but Pepper behaves like a kid (if she gets distracted, she just stops listening you)
+```sh
+$ rosrun joy joy_node
+$ rosrun joy_pepper joypepper.py
+```
+
+If you want to control Pepper with Joystick with Autonomous life OFF, add this line before:
+```sh
+$ roslaunch pepper_dcm_bringup pepper_bringup.launch robot_ip:="10.42.0.76" network_interface:=wlan0
+```
+#### Joystick configurations
+* Base control: <br />
+  * left arrow keys
+    * <- turn left, -> right
+    * ^ move forward, v move backward
+  
+* Head control: 
+  * right buttons
+
+* Sleep & WakeUp:
+  * R1 & R2 buttons
+
+
+Run ORB SLAM 2 - Monocular
+```sh
+$ rosrun ORB_SLAM2 Mono /Path/To/ORB_SLAM2/Vocabulary/ORBvoc.bin /Path/To/ORB_SLAM2/Examples/Monocular/TUM1.yaml
+```
+
+RUN ORB SLAM - RGB-D
+```sh
+$ rosrun ORB_SLAM2 RGBD /Path/To/ORB_SLAM2/Vocabulary/ORBvoc.bin /Path/To/ORB_SLAM2/Examples/RGB-D/pepperCameraSettings.yaml false (create a new map) / true (use a saved map)
+```
+
+Run object recognition
+```sh
+$ rosrun pepper_recog recog.py
+```
+
+### Special thanks
+We want to thank 
+* **Raul Mur-Artal** for his awesome [ORB SLAM2](https://github.com/raulmur/ORB_SLAM2)
+* **Bence Magyar** for his advice of using [Joystick teleop](https://github.com/ros-teleop/teleop_tools)
+* **José María Sola Durán** for his object recognition [code framework](https://gitlab.com/josemariasoladuran/object-recognition-opencv-python)
 
 ### Logbook
 [link](https://www.overleaf.com/6504894skysnw)
