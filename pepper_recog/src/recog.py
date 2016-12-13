@@ -29,7 +29,6 @@ from sensor_msgs.msg import Temperature
 
 class recognition():
     def __init__(self):
-        # self.image_pub = rospy.Publisher("image_topic_2", Image)
 
         self.bridge = CvBridge()
 
@@ -44,15 +43,12 @@ class recognition():
 
         self.image_sub = rospy.Subscriber("/camera/image_raw",Image,self.callback)
 
-        # cv2.namedWindow('Features')
         self.drawKP = 0;
         self.videoinput = videoinput.VideoInput('0:ws=300:cols=400')
         self.paused = False
         self.dataBaseDictionary = orec.loadModelsFromDirectory()
         self.detector = cv2.SIFT(nfeatures=150)
-        # self.detector = cv2.SURF(800)
         self.methodstr = 'SIFT'
-        # self.curFrame = 0
         self.depthObj = 0
     def nothing(*arg):
         pass
@@ -60,12 +56,10 @@ class recognition():
     def callback(self,data):
         try: 
             frame = self.bridge.imgmsg_to_cv2(data, "bgr8")
-            # self.curFrame += 1
         except CvBridgeError as e:
             print(e)
 
 
-        # if (self.curFrame == 0) and (not self.paused) and (frame is not None):
         if (not self.paused) and (frame is not None):
             # self.curFrame = 0
             # convert color to gray
@@ -99,18 +93,13 @@ class recognition():
                     self.msg_recog.header.stamp = rospy.get_rostime();
 
                     xc = 160
-                    # yc = 120
                     dx = xc - center[0]
-                    # dy = yc - center[1]
 
-                    # print("DX: ", dx/500.0)
                     motion.angular.z = dx/500.0;
 
                     if self.depthObj > 0.4:
-                        # print('Far: ', self.depthObj)
                         motion.linear.x = 0.3
                     if self.depthObj < 0.2:
-                        # print('Close: ', self.depthObj)
                         motion.linear.x = -0.3
                     
                     self.motionPub.publish(motion);
@@ -156,23 +145,10 @@ class recognition():
             ch = cv2.waitKey(5) & 0xFF
             if ch == ord(' '):  # Pause space bar
                 self.paused = not self.paused
-        # else:
-        #     print('End of video input')
-        # publish
         self.recog_pub.publish(self.msg_recog)    
     # frame = cv2.resize(frame, (0, 0), fx = 3.0, fy = 3.0)
 
 
-
-    # cv2.imshow("Image window", cv_image)
-    # c = cv2.waitKey(1)
-    # if 'q' == chr(c & 255):
-    #     return 1
-
-    # try:
-      # self.image_pub.publish(self.bridge.cv2_to_imgmsg(cv_image, "bgr8"))
-    # except CvBridgeError as e:
-      # print(e)
 
 def main(args):
   rospy.init_node('recog', anonymous=True)
@@ -181,9 +157,7 @@ def main(args):
   ROBOT_PORT   = 9559
   proxy  = ALProxy("ALTextToSpeech", ROBOT_IP, ROBOT_PORT)
   proxy.say("Recognition mode is activated!");
-  # motionProxy = ALProxy("ALMotion", ROBOT_IP, ROBOT_PORT)
-  # motionProxy.setExternalCollisionProtectionEnabled("All", True)
-  # motionProxy.setExternalCollisionProtectionEnabled("Move", False)
+
   try:
     rospy.spin()
   except KeyboardInterrupt:

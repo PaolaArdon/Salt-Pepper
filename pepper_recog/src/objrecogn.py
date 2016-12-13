@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 
-@Original author: José María Sola Durán, 2015
+@Original code framework author: José María Sola Durán, 2015
 
 @Modified by Songyou Peng, Kaisar Kushibar and Paola Ardon, 2016
 """
@@ -46,10 +46,8 @@ def loadModelsFromDirectory():
                      ('ORB', [])])
     #The number of features is limited to 250
     sift = cv2.SIFT(nfeatures=250)
-    #akaze = cv2.AKAZE()
     surf = cv2.SURF(800)
     orb = cv2.ORB(400)
-    #brisk = cv2.BRISK()
     for imageFile in os.listdir("/home/cnx/catkin_ws/src/pepper_recog/src/models"):
         #Load the image with OpenCV
         colorImage = cv2.imread("/home/cnx/catkin_ws/src/pepper_recog/src/models/" + str(imageFile))
@@ -61,18 +59,13 @@ def loadModelsFromDirectory():
         kp, desc = sift.detectAndCompute(currentImage, None)
         #Load the features with SIFT
         dataBase["SIFT"].append(ImageFeature(imageFile, currentImage.shape, colorImage, kp, desc))
-        #Se cargan las features con AKAZE
-        #kp, desc = akaze.detectAndCompute(currentImage, None)
-        #dataBase["AKAZE"].append(ImageFeature(imageFile, currentImage.shape, colorImage, kp, desc))
-        #Se cargan las features con SURF
+
         kp, desc = surf.detectAndCompute(currentImage, None)
         dataBase["SURF"].append(ImageFeature(imageFile, currentImage.shape, colorImage, kp, desc))
         #Loading features with ORB
         kp, desc = orb.detectAndCompute(currentImage, None)
         dataBase["ORB"].append(ImageFeature(imageFile, currentImage.shape, colorImage, kp, desc))
-         #Se cargan las features con BRISK
-        #kp, desc = brisk.detectAndCompute(currentImage, None)
-        #dataBase["BRISK"].append(ImageFeature(imageFile, currentImage.shape, colorImage, kp, desc))
+
     return dataBase
 #Function in charge of calculating the mutual matchings with nesting for loops
 #Slow solution because we are not taking advantage of Numpy. Not even a slider
@@ -175,8 +168,7 @@ def calculateBestImageByNumInliers(selectedDataBase, projer, minInliers):
     numInliers = 0
     #For each of the images
     for index, imgWithMatching in enumerate(selectedDataBase):
-        #we compute the algorithm RANSAC to calculate the number of inliers       
-        # print type(imgWithMatching.matchingDatabase)
+        # Use RANSAC to calculate the number of inliers       
         if imgWithMatching.matchingDatabase.size is not 0:
             _, mask = cv2.findHomography(imgWithMatching.matchingDatabase, 
                                      imgWithMatching.matchingWebcam, cv2.RANSAC, projer)
@@ -230,9 +222,8 @@ def calculateAffinityMatrixAndDraw(bestImage, inliersDataBase, inliersWebCam, im
         dreal = (int(d[0]/d[2]), int(d[1]/d[2]))
         centroreal = (int(centro[0]/centro[2]), int(centro[1]/centro[2]))
         
-        #Draw the polygono and the name of the file in the image
+        #Draw the polygon and the name of the file in the image
         points = np.array([areal, breal, creal, dreal], np.int32) 
-        # print(np.sqrt(np.sum(np.square(points[1,:] - points[2,:]))))
         depth = 0.250*bestImage.shape[1]/np.sqrt(np.sum(np.square(points[0,:] - points[1,:]))) - 0.25
         cv2.polylines(imgout, np.int32([points]),1, (0,255,0), thickness=2)
         utilscv.draw_str(imgout, centroreal, bestImage.nameFile.upper().split('.')[0], sz=2.0, th=3)
