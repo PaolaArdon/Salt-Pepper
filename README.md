@@ -1,6 +1,10 @@
 # Salt-Pepper Project 
 This is the Robotics Project (VIBOT 3rd semester, Heriot-Watt University) done by Paola Ardon(ardonp@hotmail.com) Kaisar Kushibar(k.kushibar@gmail.com), and Songyou Peng (psy920710@gmail.com). 
 
+A paper describes the technical details of this project:
+
+> Paola Ardon and Kaisar Kushibar and Songyou Peng, "**[A Hybrid SLAM and Object Recognition System for Pepper Robot](https://arxiv.org/abs/1708.00411)**", arXiv preprint arXiv:1903.00675.
+
 ### Requirements
 * [ROS](http://www.ros.org/)
 * [Python 2.7](https://www.python.org/)
@@ -11,6 +15,8 @@ This is the Robotics Project (VIBOT 3rd semester, Heriot-Watt University) done b
 
 
 ### Demo
+![alt_tag](https://pengsongyou.github.io/media/pepper_teaser_new.gif)
+
 The demonstration of SLAM + Object recognition with Pepper robot can be found [**here**](https://www.youtube.com/watch?v=evFsnWH_bpY&t=5s).
 
 
@@ -59,11 +65,22 @@ Run object recognition
 $ rosrun pepper_recog recog.py
 ```
 
+
 ### Special thanks
 We want to thank 
 * **Raul Mur-Artal** for his awesome [ORB SLAM2](https://github.com/raulmur/ORB_SLAM2)
 * **Bence Magyar** for his advice of using [Joystick teleop](https://github.com/ros-teleop/teleop_tools)
 * **José María Sola Durán** for his object recognition [code framework](https://gitlab.com/josemariasoladuran/object-recognition-opencv-python)
 
-### Logbook
-[link](https://www.overleaf.com/6504894skysnw)
+
+## Citation
+If you find this work helpful, please consider citing our paper:
+```sh
+@inproceedings{ardon2019hybrid,
+ author =  {Paola Ard\'on and Kaisar Kushibar and Songyou Peng},
+ title = {A Hybrid SLAM and Object Recognition System for Pepper Robot},
+ year = {2019},
+ booktitle = {arXiv preprint arXiv:1903.00675},
+}
+```
+
