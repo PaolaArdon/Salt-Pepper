@@ -3,7 +3,7 @@ This is the Robotics Project (VIBOT 3rd semester, Heriot-Watt University) done b
 
 A paper describes the technical details of this project:
 
-> Paola Ardon and Kaisar Kushibar and Songyou Peng, "**[A Hybrid SLAM and Object Recognition System for Pepper Robot](https://arxiv.org/abs/1708.00411)**", arXiv preprint arXiv:1903.00675.
+> Paola Ardon* and Kaisar Kushibar* and Songyou Peng*, "**[A Hybrid SLAM and Object Recognition System for Pepper Robot](https://arxiv.org/abs/1708.00411)**", arXiv preprint arXiv:1903.00675. (* all author contributed equally)
 
 ### Requirements
 * [ROS](http://www.ros.org/)
