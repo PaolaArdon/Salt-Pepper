@@ -1,5 +1,5 @@
 # Salt-Pepper Project 
-This is the Robotics Project (VIBOT 3rd semester, Heriot-Watt University) done by Paola Ardon(ardonp@hotmail.com) Kaisar Kushibar(k.kushibar@gmail.com), and Songyou Peng (psy920710@gmail.com). 
+This is the Robotics Project (VIBOT 3rd semester, Heriot-Watt University) done by [Paola Ardon](https://paolaardon.github.io/), [Kaisar Kushibar](https://scholar.google.es/citations?user=VeHqMi4AAAAJ&hl=en) and [Songyou Peng](https://pengsongyou.github.io). 
 
 A paper describes the technical details of this project:
 
